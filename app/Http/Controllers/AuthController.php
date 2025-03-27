@@ -50,4 +50,15 @@ class AuthController extends Controller
             'user'=>auth('api')->user()
         ]);
     }
+
+    public function profile(){
+        return response()->json(auth('api')->user());
+    }
+
+    public function logout(){
+        auth('api')->logout();
+        return response()->json([
+            'message'=>'user logged out' 
+        ]);
+    }
 }

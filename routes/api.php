@@ -12,4 +12,6 @@ Route::get('/user', function (Request $request) {
 Route::group(['prefix'=>'auth'], function(){
     Route::post('/register', [AuthController::class, 'register'])->withoutMiddleware('api');
     Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/profile', [AuthController::class, 'profile']);
+    Route::post('/logout', [AuthController::class, 'logout']);    
 });
